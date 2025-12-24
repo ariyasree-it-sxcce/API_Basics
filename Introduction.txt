@@ -1,0 +1,131 @@
+API:
+---
+ > Application Programming Interface
+ > An API is a messenger that lets two apps talk to each other.
+ -----------------------------------------------------------------
+ Think of a restaurant:
+
+    You = Customer
+    Menu = API
+    Kitchen = Server / Database
+    Waiter = API 
+------------------------------------------------------------------
+DBMS + API:
+-----------
+           User
+            ↓
+         Mobile App
+            ↓ (API Request)
+         Server
+            ↓ (DB Query)
+          DBMS
+            ↑ (Data)
+          Server
+            ↑ (API Response)
+         Mobile App
+            ↓
+          User
+
+------------------------------------------------------------------
+ How it works:
+--------------
+    You choose food from the menu (request)
+    You tell the waiter
+    Waiter goes to the kitchen
+    Kitchen prepares food
+    Waiter brings food to you (response)
+
+    --> You never go inside the kitchen
+    --> You only talk to the waiter
+
+    > The waiter is like an API
+
+                          API DOCUMENTATION
+    API CONSUMER --------------------------------- SERVICE PROVIDER
+    [CUSTOMER]                 [MENU]                    [CHEF]
+------------------------------------------------------------------
+API in real-world applications:
+------------------------------
+    Mobile Apps:
+
+        When you log in using Google / Facebook
+
+        App → Google API → Google checks → Response
+
+    Maps & Navigation :
+
+        Uber / Ola
+        App → Google Maps API → Route, distance, time
+
+    Food Delivery :
+
+        Zomato/Swiggy app
+        Talks to restaurant database
+        Shows menu, prices, availability of each restaurants 
+
+        1️⃣ User opens Zomato app
+
+        User searches: “Biryani”
+        👉 App cannot directly access DBMS
+
+        2️⃣ App sends request via API 📡
+
+        Example request:
+        GET /restaurants?food=biryani&area=anna_nagar
+
+
+        👉 This is an API call
+
+        3️⃣ Server receives API request 🖥️
+
+        Server:
+
+        Understands request
+        Decides what data is needed
+
+        4️⃣ Server queries DBMS 📦
+
+        DBMS tables:
+            Restaurants
+            Menu
+            Location
+            Availability
+
+        Example:
+
+        SELECT * FROM restaurants WHERE food='biryani';
+
+        👉 This is DBMS work
+
+        5️⃣ DBMS sends data to server
+
+        Raw data (rows, columns)
+
+        6️⃣ Server sends data back via API 🔁
+
+        Converts DB data into JSON
+        Sends it to mobile app
+
+        7️⃣ App displays result 📱
+
+        User sees:
+            Restaurants
+            Prices
+            Ratings
+
+------------------------------------------------------------------
+Types of APIs:
+
+    1️) Language / Library API
+        >print()
+        >len()
+        >input()
+
+    2️) Operating System API
+        >File read/write
+        >Keyboard, screen access
+
+    3) Web API
+        >Google Maps API
+        >Weather API
+        >Payment API
