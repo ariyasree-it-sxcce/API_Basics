@@ -2,14 +2,14 @@ API:
 ---
  > Application Programming Interface
  > An API is a messenger that lets two apps talk to each other.
- -----------------------------------------------------------------
+ --------------------------------------------------------------------------------------
  Think of a restaurant:
 
     You = Customer
     Menu = API
     Kitchen = Server / Database
     Waiter = API 
-------------------------------------------------------------------
+---------------------------------------------------------------------------------------
 DBMS + API:
 -----------
            User
@@ -26,7 +26,7 @@ DBMS + API:
             ↓
           User
 
-------------------------------------------------------------------
+----------------------------------------------------------------------------------------
  How it works:
 --------------
     You choose food from the menu (request)
@@ -43,7 +43,9 @@ DBMS + API:
                           API DOCUMENTATION
     API CONSUMER --------------------------------- SERVICE PROVIDER
     [CUSTOMER]                 [MENU]                    [CHEF]
-------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
 API in real-world applications:
 ------------------------------
     Mobile Apps:
@@ -62,7 +64,7 @@ API in real-world applications:
         Zomato/Swiggy app
         Talks to restaurant database
         Shows menu, prices, availability of each restaurants 
-
+     ---------------------------------------------------------
         1️⃣ User opens Zomato app
 
         User searches: “Biryani”
@@ -73,15 +75,13 @@ API in real-world applications:
         Example request:
         GET /restaurants?food=biryani&area=anna_nagar
 
-
         👉 This is an API call
 
         3️⃣ Server receives API request 🖥️
 
         Server:
-
-        Understands request
-        Decides what data is needed
+            Understands request
+            Decides what data is needed
 
         4️⃣ Server queries DBMS 📦
 
@@ -92,7 +92,6 @@ API in real-world applications:
             Availability
 
         Example:
-
         SELECT * FROM restaurants WHERE food='biryani';
 
         👉 This is DBMS work
@@ -113,7 +112,7 @@ API in real-world applications:
             Prices
             Ratings
 
-------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 Types of APIs:
 
     1️) Language / Library API
