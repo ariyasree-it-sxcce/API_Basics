@@ -1,0 +1,283 @@
+FASTAPI + MYSQL TODO APP :
+
+   What is FastAPI? 
+
+    >>>FastAPI is a Python framework used to:
+
+
+   How it works??
+
+      > FastAPI = Waiter in a restaurant
+      > MySQL   = Kitchen
+      > Postman = Customer
+   
+   -----------------------------
+   | Postman → FastAPI → MySQL |
+   -----------------------------
+
+ ----------------------------------------------------------------------
+
+   What is MySQL?
+
+      MySQL is a database.
+      It stores data permanently.
+
+      Example:
+      Todo title = "Learn FastAPI"
+
+ ----------------------------------------------------------------------
+
+   What is VS Code
+
+      VS Code is an editor.
+      You write code here.
+
+ ---------------------------------------------------------------------
+
+   What is a Virtual Environment
+
+      A virtual environment is an isolated place for Python packages.
+
+      Why needed:
+
+         * Different projects need different versions
+         * Avoid conflicts
+         * Keeps system Python clean
+
+   ---
+
+   # STEP 1: CREATE PROJECT FOLDER
+
+      Create a folder anywhere on your system.
+
+      Folder name:
+      todo_fastapi
+
+      Open VS Code:
+
+      Click File → Open Folder
+      Select todo_fastapi
+
+      Now VS Code knows this is your project.
+
+   -------------------------------------------------------------------
+
+   # STEP 2: CREATE VIRTUAL ENVIRONMENT
+
+      Open terminal inside VS Code.
+
+      Run:
+      python -m venv venv
+
+      Explanation:
+
+      * python: runs Python 
+      * -m venv: tells Python to create virtual environment
+      * venv: folder name 
+
+      After this:
+      A folder named venv will be created.
+
+   ---
+
+   ACTIVATE VIRTUAL ENVIRONMENT (Command Prompt)
+
+      Run:
+      venv\Scripts\activate
+
+      If activated correctly:
+      You will see (venv) at start of terminal line.
+
+      This means:
+      Any package you install now is only for this project.
+
+   -------------------------------------------------------------------
+
+   # STEP 3: INSTALL REQUIRED PACKAGES
+
+   Run this command:
+
+   pip install fastapi uvicorn sqlalchemy pymysql
+
+   ---
+
+   # What each package does
+
+      fastapi:
+      Used to create API routes like GET, POST
+
+      uvicorn:
+      Runs the FastAPI app like a server
+
+      sqlalchemy:
+      Python tool to talk to database using Python objects
+
+      pymysql:
+      Driver that allows Python to connect to MySQL
+
+   ---
+
+   # SAVE DEPENDENCIES
+
+      Run:
+         pip freeze > requirements.txt
+
+         This creates requirements.txt
+
+      Why important:
+         If someone else clones your project, they can run:
+         pip install -r requirements.txt
+
+         And get same packages.
+
+ --------------------------------------------------------------------
+
+   # STEP 4: CREATE MYSQL DATABASE AND TABLE
+
+      Open MySQL Workbench or MySQL command line.
+
+      Run:
+
+         CREATE DATABASE todo_db;
+
+      Explanation:
+
+         > Creates a database named todo_db
+
+   ---
+
+   Select the database:
+   
+   USE todo_db;
+
+   ---
+
+      Create table:
+
+      CREATE TABLE todos (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(255),
+      completed BOOLEAN DEFAULT FALSE
+      );
+
+   ---
+
+   # What this table means
+
+      id
+      Automatically increases for each todo
+
+      title
+      Stores task name
+
+      completed
+      Stores true or false
+
+ ------------------------------------------------------------------
+ xxxxx--->>> in progress
+   # STEP 5: DATABASE CONNECTION FILE
+
+      Create a file in project folder:
+      database.py
+
+   ---
+
+   ### Why database.py is needed
+
+   This file:
+
+   * Connects FastAPI to MySQL
+   * Creates reusable database session
+   * Avoids repeating code
+
+   ---
+
+   ### CODE: database.py
+
+   from sqlalchemy import create_engine
+   from sqlalchemy.orm import sessionmaker, declarative_base
+
+   DATABASE_URL = "mysql+pymysql://root:password@localhost/todo_db"
+
+   engine = create_engine(DATABASE_URL)
+
+   SessionLocal = sessionmaker(bind=engine)
+
+   Base = declarative_base()
+
+   ---
+
+   ### LINE BY LINE EXPLANATION
+
+   from sqlalchemy import create_engine
+   create_engine creates a connection to database.
+
+   ---
+
+   from sqlalchemy.orm import sessionmaker, declarative_base
+   sessionmaker is used to create database sessions.
+   declarative_base is used to define tables using Python classes.
+
+   ---
+
+   DATABASE_URL = "mysql+pymysql://root:password@localhost/todo_db"
+
+   This is database connection string.
+
+   Breakdown:
+   mysql → database type
+   pymysql → driver
+   root → MySQL username
+   password → MySQL password
+   localhost → MySQL server location
+   todo_db → database name
+
+   You MUST change:
+   root
+   password
+   to your MySQL details.
+
+   ---
+
+   engine = create_engine(DATABASE_URL)
+
+   This creates actual connection between Python and MySQL.
+
+   ---
+
+   SessionLocal = sessionmaker(bind=engine)
+
+   This creates a factory.
+   Every API request will get its own database session.
+
+   ---
+
+   Base = declarative_base()
+
+   This base class is used later to define database tables as Python classes.
+
+   ---
+
+   ## WHAT YOU SHOULD UNDERSTAND BY NOW
+
+   You have:
+
+   * A project folder
+   * A virtual environment
+   * Installed FastAPI related packages
+   * Created MySQL database and table
+   * Connected Python to MySQL
+
+   ---
+
+   ## STOP POINT
+
+   Do NOT move forward until:
+
+   * Virtual environment activates correctly
+   * MySQL database exists
+   * No error in database.py
+
+   ---
+
+

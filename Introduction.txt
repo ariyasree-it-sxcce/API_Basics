@@ -25,7 +25,14 @@ DBMS + API:
          Mobile App
             ↓
           User
-
+----------------------------------------------------------------------------------------
+       --------------------------------
+        Action  	    PI	    DBMS
+       --------------------------------
+        View menu	    GET	    SELECT
+        Place order	    POST	INSERT
+        Update status	PUT	    UPDATE
+        Cancel order	DELETE	DELETE
 ----------------------------------------------------------------------------------------
  How it works:
 --------------
@@ -81,7 +88,7 @@ API in real-world applications:
 
         Server:
             Understands request
-            Decides what data is needed
+            Decides what data is needed 
 
         4️⃣ Server queries DBMS 📦
 
@@ -128,3 +135,8 @@ Types of APIs:
         >Google Maps API
         >Weather API
         >Payment API
+------------------------------------------------------------------------------------------
+CORE BENEFITS OF API:
+        > We can integrate multiple platforms under one app
+        > We can reuse software
+        > Saves time and money
