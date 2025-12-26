@@ -152,13 +152,14 @@ FASTAPI + MYSQL TODO APP :
 
    ---
 
-      Create table:
+   Create table:
+   -------------
 
-      CREATE TABLE todos (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      title VARCHAR(255),
-      completed BOOLEAN DEFAULT FALSE
-      );
+   CREATE TABLE todos (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   title VARCHAR(255),
+   completed BOOLEAN DEFAULT FALSE
+   );
 
    ---
 

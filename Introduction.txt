@@ -27,7 +27,7 @@ DBMS + API:
           User
 ----------------------------------------------------------------------------------------
        --------------------------------
-        Action  	    PI	    DBMS
+        Action  	    API	    DBMS
        --------------------------------
         View menu	    GET	    SELECT
         Place order	    POST	INSERT
@@ -129,7 +129,7 @@ Types of APIs:
 
     2️) Operating System API
         >File read/write
-        >Keyboard, screen access
+        >Keyboard, screen access 
 
     3) Web API
         >Google Maps API
