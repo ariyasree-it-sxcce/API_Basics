@@ -3,7 +3,21 @@ FASTAPI + MYSQL TODO APP :
    What is FastAPI? 
 
     >>>FastAPI is a Python framework used to:
+         >handle HTTP requests (GET, POST, PUT, DELETE, etc.)
+         >build high-performance backend applications
+         >automatically generate API documentation (Swagger UI)
+      
+          Mobile App
+            |
+            |  POST /tasks
+            |  {"title":"Buy milk"}
+            |
+          FastAPI Server
+            |
+          Database (MySQL)
 
+
+-----------------------------------------------------------------------
 
    How it works??
 
@@ -11,9 +25,9 @@ FASTAPI + MYSQL TODO APP :
       > MySQL   = Kitchen
       > Postman = Customer
    
-   -----------------------------
-   | Postman → FastAPI → MySQL |
-   -----------------------------
+      -----------------------------
+      | Postman → FastAPI → MySQL |
+      -----------------------------
 
  ----------------------------------------------------------------------
 
@@ -36,7 +50,7 @@ FASTAPI + MYSQL TODO APP :
 
    What is a Virtual Environment
 
-      A virtual environment is an isolated place for Python packages.
+      A virtual environment is an isolated place for Python packages. 
 
       Why needed:
 
@@ -104,7 +118,7 @@ FASTAPI + MYSQL TODO APP :
    # What each package does
 
       fastapi:
-      Used to create API routes like GET, POST
+      Used to create API routes like GET, POST 
 
       uvicorn:
       Runs the FastAPI app like a server
@@ -175,7 +189,6 @@ FASTAPI + MYSQL TODO APP :
       Stores true or false
 
  ------------------------------------------------------------------
- xxxxx--->>> in progress
    # STEP 5: DATABASE CONNECTION FILE
 
       Create a file in project folder:
@@ -279,6 +292,6 @@ FASTAPI + MYSQL TODO APP :
    * MySQL database exists
    * No error in database.py
 
-   ---
+   --------------------------------------------------------------------
 
 
